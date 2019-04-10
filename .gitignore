@@ -1,0 +1,7 @@
+
+# plugins/10-init/files/.gitignore -------------------
+
+dein
+src
+.config.new
+sessions

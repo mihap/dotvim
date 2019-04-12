@@ -1,0 +1,142 @@
+snippet rcc "React class component" b
+import React, {
+  PureComponent
+} from 'react';
+import T from 'prop-types';
+
+import styles from './styles';
+
+class $1 extends PureComponent {
+  static propTypes = {
+  }
+
+  render() {
+    return (
+      <div className={ styles.root }>
+      </div>
+    );
+  }
+}
+
+export default $1;
+endsnippet
+
+snippet rcf "React functional component" b
+import React from 'react';
+import T from 'prop-types';
+
+import styles from './styles';
+
+
+const $1 = ({ $2 }) => (
+  <div className={ styles.root }>
+  </div>
+);
+$1.propTypes = {
+  $2: T.$3.isRequired
+}
+
+export default $1;
+endsnippet
+
+snippet con "Redux connect" b
+import { connect } from 'react-redux';
+import {
+} from 'actions/';
+import $1 from './$2';
+
+
+const mapStateToProps = ({ $3 }) => ({
+  $3
+});
+
+const mapDispatchToProps = dispatch => ({
+  $4: () => { dispatch($4()) }
+});
+
+
+export defaultconnect(mapStateToProps, mapDispatchToProps)($1);
+endsnippet
+
+snippet red "Redux Reducer" b
+import createReducer from 'config/createReducer';
+import Constants from 'config/constants';
+
+
+const getDefaultState = () => ({
+  fetching: false
+});
+
+
+const $1 = createReducer(getDefaultState(), {
+  [Constants.$1.FETCH](state) {
+    return {
+      ...state,
+      fetching: true
+    };
+  },
+
+  [Constants.$1.FETCH_FAILURE](state) {
+    return {
+      ...state,
+      fetching: false
+    };
+  },
+
+  [Constants.$1.FETCH_SUCCESS](state) {
+    return {
+      ...state,
+      fetching: false
+    };
+  }
+});
+
+
+export default $1;
+export * from './propTypes';
+endsnippet
+
+
+snippet act "Redux Action" b
+import {
+  api
+} from 'config/api';
+import Constants from 'config/constants';
+
+const fetch$1Start = {
+  type: Constants.$1.FETCH
+};
+
+const fetch$1Failure = () => ({
+  type: Constants.$1.FETCH_FAILURE
+});
+
+const fetch$1Success = data => ({
+  type: Constants.$1.FETCH_SUCCESS,
+  data
+});
+
+export const fetch$1 = opts =>
+  async (dispatch) => {
+    dispatch(fetch$1Start);
+
+    const params = {
+    };
+
+    const {
+      response,
+      json
+    } = await api.get('', params);
+
+    if (response && response.ok) {
+      dispatch(fetch$1Success(json));
+    } else {
+      dispatch(fetch$1Failure());
+    }
+  };
+endsnippet
+
+snippet e "Element" b
+<${1:div} className={ styles.$2 }>
+</${1/(\w+).*/$1/}>
+endsnippet

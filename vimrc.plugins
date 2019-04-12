@@ -140,6 +140,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
 " plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.plugins -------------------
 
 call dein#add('Shougo/unite-outline')

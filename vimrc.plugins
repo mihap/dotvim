@@ -36,7 +36,7 @@ let NERDTreeRespectWildIgnore=1
 
 " plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/10-nerdtree-git/files/vimrc.plugins -------------------
 
-call dein#add('Xuyuanp/nerdtree-git-plugin')
+"call dein#add('Xuyuanp/nerdtree-git-plugin')
 
 " plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.plugins -------------------
 

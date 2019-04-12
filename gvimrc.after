@@ -4,3 +4,5 @@
 if filereadable(expand("~/.gvimrc.after"))
     source ~/.gvimrc.after
 endif
+
+set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h13
